@@ -58,9 +58,9 @@ const Login = () => {
                     <Text style={{ fontSize: 20, textAlign: "center" }}>Login</Text>
                 </TouchableOpacity>
             </View>
-            {/* <View>
-                <Text style={styles.display}>{message}</Text>
-            </View> */}
+            <View>
+                <Text onPress={()=> navigation.navigate('Signup')} style={styles.display}>Not a user Signup!</Text>
+            </View>
         </SafeAreaView>
 
     );
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
     display: {
         color: "black",
         fontSize: 14,
-        paddingTop: 30,
+        paddingTop: 20,
         textAlign: "center"
     }
 

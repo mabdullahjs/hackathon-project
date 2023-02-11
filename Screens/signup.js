@@ -1,5 +1,6 @@
 import React from 'react';
 import { SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 import auth from '@react-native-firebase/auth';
 
@@ -10,6 +11,8 @@ const Singup = () => {
     const [contact, onChangeContact] = React.useState('');
     const [error, setError] = React.useState('');
 
+    let navigation = useNavigation()
+
     const signing = async () => {
 
         await auth()
@@ -17,6 +20,7 @@ const Singup = () => {
             .then(() => {
                 setError('User account created & signed in!');
                 console.log('User account created & signed in!');
+                navigation.navigate('Login')
             })
             .catch(error => {
                 if (error.code === 'auth/email-already-in-use') {
@@ -79,6 +83,9 @@ const Singup = () => {
                 <TouchableOpacity onPress={() => signing()} style={{ backgroundColor: "black", width: "40%", padding: 8, borderRadius: 20 }}>
                     <Text style={{ fontSize: 20, textAlign: "center" }}>Submit</Text>
                 </TouchableOpacity>
+            </View>
+            <View>
+                <Text onPress={()=> navigation.navigate('Login')} style={styles.display}>Already a User? Login </Text>
             </View>
             <View>
                 <Text style={styles.display}>{error}</Text>
