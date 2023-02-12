@@ -11,31 +11,36 @@ const Login = () => {
     const navigation = useNavigation();
 
     const handleLogin = async () => {
-        try {
-            const isUserLogin = await auth().signInWithEmailAndPassword(
-                email,
-                password,
-            );
-            // setMessage('');
-            console.log(isUserLogin);
+        if (email === 'mabdullah2037@gmail.com' && password === 'bustop123') {
+            navigation.navigate('AdminProduct')
+        } else {
+            try {
+                const isUserLogin = await auth().signInWithEmailAndPassword(
+                    email,
+                    password,
+                );
+                // setMessage('');
+                console.log(isUserLogin);
 
-            navigation.navigate('Home', {
-                email: isUserLogin.user.email,
-                uid: isUserLogin.user.uid,
-            });
-        } catch (err) {
-            console.log(err);
+                navigation.navigate('Home', {
+                    email: isUserLogin.user.email,
+                    uid: isUserLogin.user.uid,
+                });
+            } catch (err) {
+                console.log(err);
 
-            // setMessage(err.message);
+                // setMessage(err.message);
+            }
         }
+
     };
 
 
     return (
         <SafeAreaView style={styles.view}>
             <View style={{ alignItems: "center", paddingBottom: 40 }}>
-            <Text style={{ color: "#61B846", fontSize: 30, fontWeight: "bold", textAlign: "center" }}>SAYLANI WELFARE</Text>
-            <Text style={{ color: "#024F9D", fontSize: 25, fontWeight: "bold", textAlign: "center" }}>ONLINE DISCOUNT STORE</Text>
+                <Text style={{ color: "#61B846", fontSize: 30, fontWeight: "bold", textAlign: "center" }}>SAYLANI WELFARE</Text>
+                <Text style={{ color: "#024F9D", fontSize: 25, fontWeight: "bold", textAlign: "center" }}>ONLINE DISCOUNT STORE</Text>
             </View>
             <TextInput
                 style={styles.input}
