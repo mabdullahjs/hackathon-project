@@ -35,7 +35,7 @@ import {
     ScrollView,
     Image,
 } from 'react-native';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 const { height, width } = Dimensions.get('window');
 import Icon from 'react-native-vector-icons/AntDesign';
 import {
@@ -44,9 +44,20 @@ import {
     responsiveWidth,
 } from 'react-native-responsive-dimensions';
 import { useNavigation } from '@react-navigation/native';
+// import axios from 'axios'
 
 const UserHome = () => {
+
+    // useEffect(()=>{
+    //     axios.get('https://hackathon-322.up.railway.app/api/username/')
+    //     .then((res)=>{
+    //         setResponse(res)
+    //         console.log(res);
+    //     })
+    //     // setResponse(res);
+    // } , [])
     const [firstName, setfirstName] = useState('');
+    const [response , setResponse] = useState('');
     const [data, setData] = useState([1, 1, 1, 1, 1, 1]);
     const [images, setimages] = useState([
         { src: require('../Screens/images/download.png') },

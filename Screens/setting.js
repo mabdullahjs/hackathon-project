@@ -18,6 +18,7 @@ import {
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 import Icon from 'react-native-vector-icons/AntDesign';
 import { useNavigation } from '@react-navigation/native';
+import axios from 'axios';
 
 const Setting = () => {
     const [firstName, setfirstName] = useState('');
@@ -27,6 +28,14 @@ const Setting = () => {
         const result = await launchImageLibrary(options);
         console.log(result);
     };
+
+    const postRequest = ()=>{
+        axios.post('https://hackathon-322.up.railway.app/api/username' , {
+            'title': firstName,
+        });
+        alert('product added');
+        setfirstName("");
+    }
 
     const navigation = useNavigation();
     return (
@@ -53,12 +62,12 @@ const Setting = () => {
                             marginVertical: 10,
                         }}
                     />
-                    <TextInput
+                    {/* <TextInput
                         style={styles.input}
                         placeholder="Update Full Name"
                         onChangeText={value => setfirstName(value)}
                         value={firstName}
-                    />
+                    /> */}
                     <View
                         style={{
                             backgroundColor: '#f1f1f1',
@@ -80,7 +89,7 @@ const Setting = () => {
                         value={firstName}
                     />
 
-                    <TouchableOpacity style={styles.button} onPress={() => alert(`ALLAH`)}>
+                    <TouchableOpacity style={styles.button} onPress={postRequest}>
                         <Text style={styles.buttonText}>Add Item</Text>
                     </TouchableOpacity>
 
@@ -153,6 +162,7 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         borderBottomWidth: 0.5,
         alignSelf: 'center',
+        color:'black'
     },
     button: {
         width: responsiveWidth(90),
@@ -170,28 +180,3 @@ const styles = StyleSheet.create({
         fontWeight: '500',
     },
 });
-
-  // <View
-
-/**
-   *        <View style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-          }}>
-          <Text style={{color: '#000', fontSize: 25}}>Inzimam Malik</Text>
-          <Text>03111260357</Text>
-        </View>
-        <Text style={{color: '#1d3557', fontSize: 20, color: '#000'}}>
-          2 item
-        </Text>
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-          }}>
-          <Text style={{color: '#1d3557', fontSize: 22}}>Total</Text>
-          <Text style={{color: '#1d3557', fontSize: 22}}>2200</Text>
-        </View><
-   */
