@@ -33,8 +33,9 @@ const Login = () => {
 
     return (
         <SafeAreaView style={styles.view}>
-            <View style={{ alignItems: "center", paddingBottom: 10 }}>
-                <Text style={styles.text}>Login</Text>
+            <View style={{ alignItems: "center", paddingBottom: 40 }}>
+            <Text style={{ color: "#61B846", fontSize: 30, fontWeight: "bold", textAlign: "center" }}>SAYLANI WELFARE</Text>
+            <Text style={{ color: "#024F9D", fontSize: 25, fontWeight: "bold", textAlign: "center" }}>ONLINE DISCOUNT STORE</Text>
             </View>
             <TextInput
                 style={styles.input}
@@ -53,13 +54,16 @@ const Login = () => {
                 secureTextEntry={true}
 
             />
-            <View style={{ alignItems: "center", paddingTop: 20 }}>
-                <TouchableOpacity onPress={() => handleLogin()} style={{ backgroundColor: "black", width: "40%", padding: 8, borderRadius: 20 }}>
+            <View style={{ alignItems: "center", paddingTop: 30 }}>
+                {/* <TouchableOpacity onPress={() => handleLogin()} style={{ backgroundColor: "black", width: "40%", padding: 8, borderRadius: 20 }}>
                     <Text style={{ fontSize: 20, textAlign: "center" }}>Login</Text>
+                </TouchableOpacity> */}
+                <TouchableOpacity onPress={() => handleLogin()} style={{ backgroundColor: "#61B846", width: '50%', padding: 10, borderRadius: 10 }}>
+                    <Text style={{ fontSize: 20, textAlign: "center" }}>LOGIN</Text>
                 </TouchableOpacity>
             </View>
             <View>
-                <Text onPress={()=> navigation.navigate('Signup')} style={styles.display}>Not a user Signup!</Text>
+                <Text onPress={() => navigation.navigate('Signup')} style={styles.display}>Not a user Signup!</Text>
             </View>
         </SafeAreaView>
 
